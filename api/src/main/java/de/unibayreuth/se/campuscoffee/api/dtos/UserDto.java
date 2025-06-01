@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 
 /**
  * DTO for user metadata.
@@ -30,6 +31,6 @@ public class UserDto {
     @Size(min = 1, max = 255, message = "Last name must be between 1 and 255 characters")
     private String lastName;
 
-    private Instant createdAt;
-    private Instant updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
