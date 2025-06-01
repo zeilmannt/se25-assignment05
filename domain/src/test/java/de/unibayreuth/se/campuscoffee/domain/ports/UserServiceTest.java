@@ -1,8 +1,6 @@
 package de.unibayreuth.se.campuscoffee.domain.ports;
 
-import de.unibayreuth.se.campuscoffee.domain.impl.PosServiceImpl;
 import de.unibayreuth.se.campuscoffee.domain.impl.UserServiceImpl;
-import de.unibayreuth.se.campuscoffee.domain.model.Pos;
 import de.unibayreuth.se.campuscoffee.domain.model.User;
 import de.unibayreuth.se.campuscoffee.domain.tests.TestFixtures;
 import org.junit.jupiter.api.Test;
