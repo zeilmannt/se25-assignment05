@@ -1,6 +1,5 @@
 package de.unibayreuth.se.campuscoffee.domain.impl;
 
-import de.unibayreuth.se.campuscoffee.domain.exceptions.PosNotFoundException;
 import de.unibayreuth.se.campuscoffee.domain.exceptions.UserNotFoundException;
 import de.unibayreuth.se.campuscoffee.domain.model.User;
 import de.unibayreuth.se.campuscoffee.domain.ports.UserDataService;
@@ -30,7 +29,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @NonNull
     public User findById(Long id) throws UserNotFoundException {
-        return null;
+        return verifyUserExists(id);
     }
 
     @Override
@@ -60,5 +59,10 @@ public class UserServiceImpl implements UserService {
     private User verifyUserExists(@NonNull String loginName) throws UserNotFoundException{
         return userDataService.getByLoginName(loginName)
                 .orElseThrow(() -> new UserNotFoundException("USER with name \"" + loginName + "\" does not exist."));
+    }
+
+    private User verifyUserExists(@NonNull Long id) throws UserNotFoundException{
+        return userDataService.getById(id)
+                .orElseThrow(() -> new UserNotFoundException("USER with id \"" + id + "\" does not exist."));
     }
 }
